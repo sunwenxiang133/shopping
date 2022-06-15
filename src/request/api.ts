@@ -13,11 +13,11 @@ export const userRegistration = (name: number, passwd: number) =>
   });
 //用户登陆
 //?account=123456789&password=54321
-export const userLogin = () =>
+export const userLogin = (account:number,password:number) =>
   request.post('/signin',{
     Body:{
-    account:'123456789',
-    password:'54321',
+    account:account,
+    password:password,
     }
   });
 
@@ -38,11 +38,11 @@ export const productList = () => request.post('/costumer/select_all_com',{
   Date:{}
 });
 
-//加入商品
+/*//加入商品
 export const addProduct = (goodsId: string, num: number, price: string) =>
   request.post(
     `/cart/add?userId=${shoppingStore1.userId}&goodsId=${goodsId}&&num=${num}&price=${price}`
-  );
+  );*/
 
 //购物车列表
 export const shoppingCartList = (userId: string) =>

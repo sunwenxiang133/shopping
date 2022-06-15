@@ -103,7 +103,7 @@
   </q-layout>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import {computed, defineComponent, onMounted, ref} from 'vue';
 import EssentialLink from 'components/EssentialLink.vue';
 import {shoppingStore} from '../stores/shopping-store'
@@ -182,28 +182,24 @@ export default defineComponent({
 
     onMounted(() => {
       productList().then((res) => {
-        let temp = res as unknown as Array<tItem>;
+        let temp = res.Data;
         temp.forEach((e) => {
           if (shoppingStore1.mItems.length <= 22) {
             shoppingStore1.mItems.push({
+              amount: e.amount,
               id: e.id,
               name: e.name,
-              pricel: +e.price1,
-              pthumbnail: 'http://202.193.53.235:8080/' + e.pthumbnail,
-              num: 1,
-              love: false,
-              cardid: '',
-              selected: false,
-            } as {
-              id: string;
+              owerAccount: e.owerAccount,
+              price: e.price,
+              url:e.url
+            } /*as {
+              amount: number;
+              id: number;
               name: string;
-              pricel: number;
-              pthumbnail: string;
-              num: number;
-              love: boolean;
-              cardid: string;
-              selected: boolean;
-            })
+              owerAccount: any;
+              price: string;
+              url: string;
+            } */)
           }
         });
         console.log(shoppingStore1.mItems);

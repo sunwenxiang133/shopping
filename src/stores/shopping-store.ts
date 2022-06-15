@@ -1,14 +1,22 @@
 import { defineStore } from 'pinia';
 
+
+/*amount: 534
+id: 34
+name: "34erg"
+owerAccount: null
+price: "erg"
+url: "reg"*/
+
+
 type Item = {
-  id: string;
+  amount: number;
+  id: number;
   name: string;
-  pricel: number;
-  pthumbnail: string;
-  num: number;
-  love: boolean;
-  cardid: string;
-  selected: boolean;
+  owerAccount: any;
+  price: string;
+  url: string;
+  love:boolean;
 };
 
 export const shoppingStore = defineStore('shoppingStore', {
@@ -23,7 +31,7 @@ export const shoppingStore = defineStore('shoppingStore', {
     // doubleCount: (state) => state.counter * 2,
   },
   actions: {
-    change(name: string, things: string, aim: any) {
+    /*change(name: string, things: string, aim: any) {
       this.mItems.forEach((e) => {
         if (e.name === name) {
           if (things === 'num') {
@@ -38,6 +46,6 @@ export const shoppingStore = defineStore('shoppingStore', {
           }
         }
       });
-    },
+    },*/
   },
 });

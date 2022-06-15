@@ -1,8 +1,10 @@
 export type tItem = {
-  id: string;
+  amount: number;
+  id: number;
   name: string;
-  price1: string;
-  pthumbnail: string;
+  owerAccount: any;
+  price: string
+  url: string
 };
 export type Item = {
   id: string;

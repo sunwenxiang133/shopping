@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-3 col-sm-4 col-xs-12">
     <q-card class="my-card">
-      <q-img :src="item.pthumbnail"/>
+      <q-img :src="item.url"/>
 
       <q-card-section>
         <q-btn
@@ -50,7 +50,7 @@
       <q-card-actions>
         <q-btn flat round icon="bi-currency-yen"/>
         <q-btn flat color="black" size="1.2vw">
-          {{ item.pricel }}
+          {{ item.price}}
         </q-btn>
       </q-card-actions>
     </q-card>
@@ -65,16 +65,9 @@ import {useRouter} from 'vue-router';
 
 export default {
   name: 'ShoppingCard',
-  props: {
-    item: {
-      id: String,
-      name: String,
-      pricel: Number,
-      pthumbnail: String,
-      num: Number,
-      love: Boolean,
-    }
-  },
+  props: [
+    'item'
+  ],
   setup(props) {
     let item = reactive(props.item);
     const shoppingStore1 = shoppingStore();
@@ -89,15 +82,15 @@ export default {
 
       item.love = !item.love;
       if (item.love) {
-        addProduct(item.id, item.num, item.pricel).then(
+        addProduct(item.id+'', item.amount, item.price).then(
           (res) => {
             console.log(res);
-            res.forEach((e) => {
+            /*res.forEach((e) => {
               if (e.name === item.name) {
                 item.cardid = e.cardid;
               }
             })
-            console.log(item.cardid);
+            console.log(item.cardid);*/
           }
         )
         return;
